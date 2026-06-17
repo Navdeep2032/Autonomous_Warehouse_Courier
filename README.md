@@ -129,6 +129,32 @@ continuous run, printing live distance and ETA telemetry to the terminal.
 
 ---
 
+## Folder Structure
+
+autonomous_warehouse_courier/
+├── README.md
+└── src/
+└── warehouse_courier/
+├── config/
+│ └── nav2_params.yaml # AMCL, costmap, planner, controller tuning
+├── launch/
+│ └── warehouse_bringup.launch.py # Gazebo + spawn + Nav2 + RViz, one command
+├── maps/
+│ ├── warehouse.pgm # saved SLAM map (occupancy grid image)
+│ └── warehouse.yaml # map metadata (resolution, origin)
+├── urdf/
+│ └── robot.urdf.xacro # differential-drive robot + lidar
+├── worlds/
+│ └── warehouse.world # Gazebo warehouse with corridor + shelves
+├── warehouse_courier/
+│ ├── **init**.py
+│ └── mission.py # PICKUP → DROPOFF → DOCK mission script
+├── resource/
+│ └── warehouse_courier
+├── package.xml
+├── setup.py
+└── setup.cfg
+
 ## Notes
 
 - `behavior_server` plugin names use the `nav2_behaviors/Spin`,
